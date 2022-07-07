@@ -1,0 +1,25 @@
+Treść zadania
+
+Stwórz jeden z poniższych programów wykorzystując Spring MVC, Data i Thymeleafa. Do przechowywania danych wykorzystaj bazę danych H2.
+Książka kucharska
+
+Stwórz aplikację książki kucharskiej, w której będą następujące funkcjonalności:
+
+    możliwość dodawania nowego przepisu
+    możliwość edycji przepisu
+    możliwość usunięcia przepisu
+    wyświetlanie listy wszystkich przepisów
+    wyświetlanie przepisów według kategorii (każda strona kategorii oprócz listy przepisów powinna mieć krótki opis i jakiś obrazek wyróżniający)
+    wyświetlanie pojedynczego przepisu
+    możliwość kliknięcia "lubię to" przy przepisie
+    wyświetlanie listy najlepszych przepisów (tych, które mają najwięcej polubień)
+
+Zadbaj o atrakcyjną szatę graficzną aplikacji, przygotuj zestaw danych testowych, które będą wstawiane do bazy danych przy starcie aplikacji. Aplikację zbuduj w taki sposób, aby korzystanie z niej było intuicyjne - np. nie wrzucaj wszystkich danych i formularzy na stronę główną.
+
+Punktacja
+
+    Każdy podpunkt zadania - 1 punkt.
+    Warstwa wizualna aplikacji - 2 punkty
+    Przygotowanie danych testowych - 1 punkt
+    Użyteczność aplikacji (intuicyjność) - 1 punkt
+
