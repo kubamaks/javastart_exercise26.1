@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Edycja i dodawanie przepisu</title>
+</head>
+<div layout:fragment="content">
+
+    <form th:action="@{/zapisz}" method="post" th:object="${recipe}">
+        <div id="left_form">
+            <div id="form_left_label">składniki:</div>
+            <table>
+                <tr>
+                    <td>nazwa</td>
+                    <td>ilość</td>
+                </tr>
+                <th:block th:each="i, itemStat : *{ingredients}">
+                    <tr>
+                        <td><input class="input_ingredients" type="text"
+                                   th:field="*{ingredients[__${itemStat.index}__].name}"/></td>
+                        <td><input class="input_ingredients" type="text"
+                                   th:field="*{ingredients[__${itemStat.index}__].quantity}"/></td>
+                    </tr>
+                </th:block>
+            </table>
+            <a th:href="|/edytuj/add|"><button class="edit_button" th:formaction="|/przepis/dodajskladnik|">NOWY SKŁADNIK</button></a>
+        </div>
+        <div id="middle_form">
+            <div>
+                <label for="name">nazwa</label>
+                <input id="name" th:field="*{name}">
+            </div>
+            <input type="hidden" th:field="*{id}" th:value="*{id}"/>
+            <input type="hidden" th:field="*{likesCounter}" th:value="*{likesCounter}"/>
+            <div th:if="${recipe.preparationTime != null}">
+            <input  type="hidden" th:field="*{preparationTime}" th:value="*{preparationTime}"/>
+            </div>
+            <div id="form_prep_time">
+                <label th:text="'&#128337 czas przygotowania'"></label>
+                    <label>hh</label>
+                    <input id="hours" name="hours" type="number" value="0" min="0" max="23"/>
+                    <label>:</label>
+                    <label>mm</label>
+                    <input id="minutes" name="minutes" type="number" value="0" min="0" max="59"/>
+                    <div id="time_info" th:if="${recipe.preparationTime} != null">
+                        <span th:text="|(dot. czas = ${#dates.format(recipe.preparationTime,'HH:mm')})|"></span>
+                    </div>
+            </div>
+            <div id="description_label"><label>sposób przyrządzania:</label></div>
+            <div><textarea th:field="*{description}"></textarea></div>
+            <div>
+                <button id="submit_button" type="submit">ZAPISZ</button>
+            </div>
+        </div>
+        <div id="right_form">
+            <div class="centered">WYBIERZ<BR/>KATEGORIE<br/></div>
+            <table id="categories">
+                <tr th:each="c: ${categories}">
+                    <td>
+                        <label>
+                            <button class="button_category_form" th:text="${c.name}" disabled></button>
+                        </label>
+                        <input type="checkbox" name="inputCategories" th:value="${c.id}"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+</html>

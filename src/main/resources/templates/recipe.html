@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="|${recipe.name}|">Przepis</title>
+</head>
+<div layout:fragment="content" th:object="${recipe}">
+    <div id="left_recipe">
+        <table>
+            <thead>
+            <tr>
+                <td th:text="Skladniki">Skladniki</td>
+            </tr>
+            </thead>
+            <tr th:each="i: *{ingredients}">
+                <td th:text="${i.getName()}"></td>
+                <td th:text="${i.getQuantity()}"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="middle_app">
+        <div id="prep_time">
+            <span th:text="|&#128337 czas przygotowania:  ${#dates.format(recipe.preparationTime,'HH:mm')}|"></span>
+            <span id="likes" th:text="|liczba polubien: *{likesCounter}|"></span>
+            <a th:href="|/przepis/*{id}/lubie|">
+                <button>&#128077</button>
+            </a>
+        </div>
+        <div th:text="*{description}"></div>
+        <div id="recipe_edit">
+            <a th:href="|/przepis/*{id}/edytuj|">
+                <button class="edit_button">EDYTUJ</button>
+            </a>
+            <a th:href="|/przepis/*{id}/usun|">
+                <button class="delete_button">USUŃ</button>
+            </a>
+        </div>
+    </div>
+    <div id="right">
+        <div class="centered">KATEGORIE<br/></div>
+        <table id="categories">
+            <tr th:each="c: *{categories}">
+                <td>
+                    <button class="button_category_form" th:text="${c.name}"></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+</html>
