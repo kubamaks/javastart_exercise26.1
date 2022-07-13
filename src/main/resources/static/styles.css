@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     height: 100%;
     font-family: sans-serif;
-    min-width: 1300px;
+    min-width: 560px;
 }
 
 form {
@@ -16,9 +16,9 @@ table {
     margin: auto;
 }
 
-thead {
-    text-align: center;
-}
+/*thead {*/
+/*    text-align: center;*/
+/*}*/
 
 label {
     margin: 2px;
@@ -54,6 +54,15 @@ img {
     height: 50px;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (min-width: 1200px) {
+    .content {
+        flex-direction: row;
+    }
+}
 .link {
     height: 3px;
     margin-left: 5px;
@@ -108,7 +117,9 @@ img {
     border: none;
     display: inline-block;
 }
-
+.number {
+    width: 45px;
+}
 .background {
     color: lightyellow;
 }
@@ -124,6 +135,18 @@ img {
 }
 
 .edit_button:hover {
+    background-color: #ffb733;
+}
+
+.remove_ingredient {
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #ffa500;
+    text-align: center;
+    border: 1px solid deepskyblue;
+}
+
+.remove_ingredient:hover {
     background-color: #ffb733;
 }
 
@@ -196,7 +219,7 @@ img {
 
 #left_form {
     margin-top: 50px;
-    width: 400px;
+    width: 450px;
     height: 100%;
     float: left;
     background-color: lightyellow;
@@ -226,8 +249,9 @@ img {
 
 #right_form {
     margin-top: 50px;
+    margin-bottom: 50px;
     width: 250px;
-    height: 100%;
+    height: 300px;
     position: relative;
     float: right;
     background-color: lightyellow;
@@ -242,6 +266,11 @@ img {
     border-collapse: collapse;
 }
 
+#ingredient_list {
+   min-width: 400px;
+    max-width: 700px;
+}
+
 #right {
     margin-top: 50px;
     width: 200px;
@@ -250,6 +279,7 @@ img {
     float: right;
     background-color: lightyellow;
     border-collapse: collapse;
+    margin-bottom: 50px;
 }
 
 #container {
@@ -271,11 +301,11 @@ img {
 }
 
 #app_header {
-    column-count: 2;
+    /*column-count: 2;*/
     background: #ffa500;
     color: lightskyblue;
     padding: 3px;
-    height: 50px;
+    min-height: 50px;
     font-weight: lighter;
     text-align: right;
 }
@@ -294,12 +324,12 @@ img {
 }
 
 #logo {
-    text-align: center;
     transform: translateY(5px);
     font-size: 35px;
     font-family: "cursive";
     font-style: italic;
     color: #996699;
+    margin-left: 100px;
 }
 
 #title {

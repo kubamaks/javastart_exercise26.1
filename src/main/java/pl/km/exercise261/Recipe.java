@@ -1,9 +1,6 @@
 package pl.km.exercise261;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +10,7 @@ class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Time preparationTime;
+    private int preparationTime;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "recipe_id")
     private List<Ingredient> ingredients = new ArrayList<>();
@@ -27,7 +24,7 @@ class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, Time preparationTime, String description) {
+    public Recipe(String name, int preparationTime, String description) {
         this.name = name;
         this.preparationTime = preparationTime;
         this.description = description;
@@ -39,6 +36,10 @@ class Recipe {
 
     public void addCategory(RecipeCategory category) {
         categories.add(category);
+    }
+
+    public void removeIngredientByIndex(int index) {
+        ingredients.remove(index);
     }
 
     public Long getId() {
@@ -57,11 +58,11 @@ class Recipe {
         this.name = name;
     }
 
-    public Time getPreparationTime() {
+    public int getPreparationTime() {
         return preparationTime;
     }
 
-    public void setPreparationTime(Time preparationTime) {
+    public void setPreparationTime(int preparationTime) {
         this.preparationTime = preparationTime;
     }
 

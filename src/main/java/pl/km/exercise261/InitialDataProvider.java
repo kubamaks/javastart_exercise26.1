@@ -1,16 +1,14 @@
 package pl.km.exercise261;
 
-import java.sql.Time;
-
 public class InitialDataProvider {
 
     public static void provideInitialData(RecipeRepository recipeRepository,
                                           RecipeCategoryRepository recipeCategoryRepository) {
-        RecipeCategory category1 = new RecipeCategory("Śniadanie", "Coś pożywnego na dobry początek.");
-        RecipeCategory category2 = new RecipeCategory("Obiad", "Warto zrobić przerwę na...");
-        RecipeCategory category3 = new RecipeCategory("Kolacja", "Ostatni posiłek przed nocną regeneracją.");
+        RecipeCategory category1 = new RecipeCategory("Śniadanie", "Coś pożywnego na dobry początek");
+        RecipeCategory category2 = new RecipeCategory("Obiad", "Warto zrobić przerwę :)");
+        RecipeCategory category3 = new RecipeCategory("Kolacja", "Ostatni posiłek przed nocną regeneracją");
         RecipeCategory category4 = new RecipeCategory("Dania mięsne", "Strefa mięsożerców");
-        RecipeCategory category5 = new RecipeCategory("Ryby i owoce morza", "Bo rybka lubi pływać");
+        RecipeCategory category5 = new RecipeCategory("Ryby i owoce morza", "\"co pływa - nie utonie\"");
         RecipeCategory category6 = new RecipeCategory("Dania vegańskie", "Zielone znaczy jedz ...");
         recipeCategoryRepository.save(category1);
         recipeCategoryRepository.save(category2);
@@ -22,7 +20,7 @@ public class InitialDataProvider {
         Ingredient ingredient1 = new Ingredient("jaja", "3 szt.");
         Ingredient ingredient2 = new Ingredient("masło", "ok. 1 łyżeczka");
 
-        Recipe recipe = new Recipe("Jajecznica babci Danusi", Time.valueOf("00:15:00"),
+        Recipe recipe = new Recipe("Jajecznica babci Danusi", 15,
                 "Rozgrzać patelnię. Dodać" +
                         " masło i poczekać aż się rozpuści. Dodać jajka (żółtka powinny być w całości). Można odrobinę posolić." +
                         " Ścinać białko - należy od czasu do czasu odrywać ścięte białko od powierzchni patelni " +
@@ -45,7 +43,7 @@ public class InitialDataProvider {
         Ingredient ingredient17 = new Ingredient("masło", "50g");
         Ingredient ingredient18 = new Ingredient("olej", "2 łyżki");
 
-        Recipe recipe1 = new Recipe("Pan Boczek", Time.valueOf("01:15:00"),
+        Recipe recipe1 = new Recipe("Pan Boczek", 75,
                 "Boczek pokroić na plastry ok 1 cm. Cebulę posiekać wg uznania (ja lubię piórka). " +
                         "Czosnek obrać i pokroić wg uznania. Rozgrzać duży rondel, wrzucić masło a następnie cebulę." +
                         "Smażyć mieszająć aż zacznie się lekko przypalać. Dodać sól i pieprz do smaku, liście laurowe," +
@@ -75,7 +73,7 @@ public class InitialDataProvider {
         Ingredient ingredient22 = new Ingredient("czosnek", "1 ząbek");
         Ingredient ingredient23 = new Ingredient("oliwa z oliwek", "3 łyżki");
 
-        Recipe recipe2 = new Recipe("Pasta z oliwek", Time.valueOf("00:15:00"),
+        Recipe recipe2 = new Recipe("Pasta z oliwek", 10,
                 "Wydrylowane oliwki (zielone lub czarne wg. uznania) odsączyć z zalewy i wrzucić do niewielkiej miski." +
                         "Dodać wyciśnięty czosnek i zmiksować blenderem na gładką pastę dodając oliwę z oliwek. Podawać" +
                         "do pieczywa, grzanek lub jako dodatek do dań");
@@ -89,7 +87,7 @@ public class InitialDataProvider {
         recipeRepository.save(recipe2);
 
         Ingredient ingredient31 = new Ingredient("Łosoś", "dzwonek lub dwa");
-        Recipe recipe3 = new Recipe("Steki z łososia z grilla", Time.valueOf("00:15:00"),
+        Recipe recipe3 = new Recipe("Steki z łososia z grilla", 12,
                 "Dwonki z łososia posolić i popieprzyć do smaku. Pamiętaj, by przed grillowaniem " +
                         "wyjąć rybę z lodówki na tyle wcześnie, by łosoś był w temperaturze pokojowej. Grilluj" +
                         " przez 4-5 minut z każdej strony i gotowe :). Można podawać z warzywami z grilla. " +
@@ -103,7 +101,7 @@ public class InitialDataProvider {
 
         Ingredient ingredient41 = new Ingredient("pieczywo", "");
         Ingredient ingredient42 = new Ingredient("hummus", "");
-        Recipe recipe4 = new Recipe("Kanapka z hummusem", Time.valueOf("00:02:00"), "" +
+        Recipe recipe4 = new Recipe("Kanapka z hummusem", 2, "" +
                 "Posmaruj pieczywo hummusem i zrobione :)");
         recipe4.setLikesCounter(2);
         recipe4.addIngredient(ingredient41);
@@ -116,7 +114,7 @@ public class InitialDataProvider {
         Ingredient ingredient51 = new Ingredient("pieczywo", "");
         Ingredient ingredient52 = new Ingredient("masło", "5 g.");
         Ingredient ingredient53 = new Ingredient("bryndza", "20 g.");
-        Recipe recipe5 = new Recipe("Kanapka z bryndzą", Time.valueOf("00:04:00"),
+        Recipe recipe5 = new Recipe("Kanapka z bryndzą", 4,
                 "Pieczywo posmaruj masłem a następnie rozsmaruj na nim bryndzę. Jak lubisz to" +
                         " posyp szczypiorkiem dodaj pomidora itd (choć uważam, że bryndza jest" +
                         " genialna sama w sobie :)).");

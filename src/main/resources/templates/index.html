@@ -5,20 +5,20 @@
 <head>
     <title>Książka kucharska</title>
 </head>
-<div layout:fragment="content">
+<div layout:fragment="content" class="content">
     <div id="left">
-        <table>
+        <table id="ingredient_list">
             <thead>
             <tr>
-                <td th:text="'przepis'">nazwa</td>
-                <td th:text="'&#128337'">&#128337</td>
-                <td th:text="'&#128077'">&#128077</td>
+                <td th:text="'Przepis:'">nazwa</td>
+                <td class="centered" th:text="'&#128337'">&#128337</td>
+                <td class="centered" th:text="'&#128077'">&#128077</td>
             </tr>
             </thead>
-            <tr th:each="r: ${recipes}">
-                <td><a th:href="|/przepis/${r.id}|" th:text="${r.name}"></a></td>
-                <td class="centered" th:text="|${#dates.format(r.preparationTime,'HH:mm')}|"></td>
-                <td class="centered" th:text="|${r.likesCounter}|"></td>
+            <tr th:each="reipe, iterStat:${recipes}">
+                <td><a th:href="|/przepis/${reipe.id}|" th:text="${reipe.name}"></a></td>
+                <td class="centered" th:text="|${prepTimes[iterStat.index]}|"></td>
+                <td class="centered" th:text="|${reipe.likesCounter}|"></td>
             </tr>
         </table>
     </div>
