@@ -22,12 +22,15 @@
                         <td><input class="input_ingredients" type="text"
                                    th:field="*{ingredients[__${itemStat.index}__].quantity}"/></td>
                         <td>
-                        <button class="remove_ingredient" th:formaction="|/przepis/usunskladnik/${itemStat.index}|">USUŃ</button>
+                        <button class="remove_ingredient" th:formaction="|/przepis/skladnik?action=remove&ingId=${itemStat.index}|">USUŃ</button>
+                        </td>
+                        <td th:if="|*{id} != null|">
+                            <input type="hidden" th:field="*{ingredients[__${itemStat.index}__].id}"/>
                         </td>
                     </tr>
                 </th:block>
             </table>
-            <button class="edit_button" th:formaction="|/przepis/dodajskladnik|">NOWY SKŁADNIK</button>
+            <button class="edit_button" th:formaction="|/przepis/skladnik?action=add|">NOWY SKŁADNIK</button>
         </div>
         <div id="middle_form">
             <div>
@@ -55,7 +58,7 @@
                         <label>
                             <button class="button_category_form" th:text="${c.name}" disabled></button>
                         </label>
-                        <input type="checkbox" name="inputCategories" th:value="${c.id}"/>
+                        <input type="checkbox" name="inputCategories" th:field="*{categories}" th:value="${c.id}"/>
                     </td>
                 </tr>
             </table>

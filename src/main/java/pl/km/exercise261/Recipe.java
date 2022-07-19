@@ -97,4 +97,26 @@ class Recipe {
     public void setLikesCounter(int likesCounter) {
         this.likesCounter = likesCounter;
     }
+
+    public String getStringedTimeFromPreparationTime() {
+        String hours;
+        String minutes;
+        if (preparationTime < 60) {
+            hours = "00";
+            minutes = getAtLeastTwoDigitalStringFromNumber(preparationTime);
+        } else {
+            minutes = getAtLeastTwoDigitalStringFromNumber(preparationTime % 60);
+            hours = getAtLeastTwoDigitalStringFromNumber(preparationTime / 60);
+        }
+        String result = hours + ":" + minutes;
+        return result;
+    }
+
+    private String getAtLeastTwoDigitalStringFromNumber(int number) {
+        if (number < 10) {
+            return "0" + number;
+        } else {
+            return String.valueOf(number);
+        }
+    }
 }

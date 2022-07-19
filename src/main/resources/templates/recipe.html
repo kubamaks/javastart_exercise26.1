@@ -21,7 +21,7 @@
     </div>
     <div id="middle_app">
         <div id="prep_time">
-            <span th:text="|&#128337 czas przygotowania: ${preparationTime}|"></span>
+            <span th:text="|&#128337 czas przygotowania: *{getStringedTimeFromPreparationTime()}|"></span>
             <span id="likes" th:text="|liczba polubien: *{likesCounter}|"></span>
             <a th:href="|/przepis/*{id}/lubie|">
                 <button>&#128077</button>

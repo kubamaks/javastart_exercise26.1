@@ -15,10 +15,10 @@
                 <td class="centered" th:text="'&#128077'">&#128077</td>
             </tr>
             </thead>
-            <tr th:each="reipe, iterStat:${recipes}">
-                <td><a th:href="|/przepis/${reipe.id}|" th:text="${reipe.name}"></a></td>
-                <td class="centered" th:text="|${prepTimes[iterStat.index]}|"></td>
-                <td class="centered" th:text="|${reipe.likesCounter}|"></td>
+            <tr th:each="r:${recipes}">
+                <td><a th:href="|/przepis/${r.id}|" th:text="${r.name}"></a></td>
+                <td class="centered" th:text="|${r.getStringedTimeFromPreparationTime()}|"></td>
+                <td class="centered" th:text="|${r.likesCounter}|"></td>
             </tr>
         </table>
     </div>
