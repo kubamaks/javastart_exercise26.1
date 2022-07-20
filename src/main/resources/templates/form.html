@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Edycja i dodawanie przepisu</title>
+</head>
+<div layout:fragment="content" class="content">
+
+    <form th:action="@{/zapisz}" method="post" th:object="${recipe}">
+        <div id="left_form">
+            <div id="form_left_label">składniki:</div>
+            <table>
+                <tr>
+                    <td>nazwa</td>
+                    <td>ilość</td>
+                </tr>
+                <th:block th:each="i, itemStat : *{ingredients}">
+                    <tr>
+                        <td><input class="input_ingredients" type="text"
+                                   th:field="*{ingredients[__${itemStat.index}__].name}"/></td>
+                        <td><input class="input_ingredients" type="text"
+                                   th:field="*{ingredients[__${itemStat.index}__].quantity}"/></td>
+                        <td>
+                        <button class="remove_ingredient" th:formaction="|/przepis/skladnik?action=remove&ingId=${itemStat.index}|">USUŃ</button>
+                        </td>
+                        <td th:if="|*{id} != null|">
+                            <input type="hidden" th:field="*{ingredients[__${itemStat.index}__].id}"/>
+                        </td>
+                    </tr>
+                </th:block>
+            </table>
+            <button class="edit_button" th:formaction="|/przepis/skladnik?action=add|">NOWY SKŁADNIK</button>
+        </div>
+        <div id="middle_form">
+            <div>
+                <label for="name">nazwa</label>
+                <input id="name" th:field="*{name}">
+            </div>
+            <input type="hidden" th:field="*{id}" th:value="*{id}"/>
+            <input type="hidden" th:field="*{likesCounter}" th:value="*{likesCounter}"/>
+            <div id="form_prep_time">
+                <label th:text="'&#128337 czas przygotowania (min)'"></label>
+                <input class="number" type="number" th:field="*{preparationTime}" min="0"/>
+
+            </div>
+            <div id="description_label"><label>sposób przyrządzania:</label></div>
+            <div><textarea th:field="*{description}"></textarea></div>
+            <div>
+                <button id="submit_button" type="submit">ZAPISZ</button>
+            </div>
+        </div>
+        <div id="right_form">
+            <div class="centered">WYBIERZ<BR/>KATEGORIE<br/></div>
+            <table id="categories">
+                <tr th:each="c: ${categories}">
+                    <td>
+                        <label>
+                            <button class="button_category_form" th:text="${c.name}" disabled></button>
+                        </label>
+                        <input type="checkbox" name="inputCategories" th:field="*{categories}" th:value="${c.id}"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+</html>

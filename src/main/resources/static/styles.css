@@ -1,0 +1,370 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+    min-width: 560px;
+}
+
+form {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/*thead {*/
+/*    text-align: center;*/
+/*}*/
+
+label {
+    margin: 2px;
+    padding: 5px;
+}
+
+input {
+    border: 1px solid #ffa500;
+    margin: 2px;
+    padding: 5px;
+    max-width: 200px;
+}
+
+textarea {
+    border: 1px solid #ffa500;
+    margin: 2px;
+    padding: 5px;
+    min-width: 500px;
+    max-width: 500px;
+    min-height: 300px;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background: lightyellow;
+}
+
+img {
+    margin-top: 10px;
+    flex: fit-content;
+    align-items: center;
+    height: 50px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (min-width: 1200px) {
+    .content {
+        flex-direction: row;
+    }
+}
+.link {
+    height: 3px;
+    margin-left: 5px;
+
+}
+
+.centered {
+    text-align: center;
+    align-content: center;
+}
+
+.button-header {
+    text-align: center;
+    height: 50px;
+    font-size: 15px;
+    background-color: #ffa500;
+    color: #666699;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.button-header:hover {
+    background-color: #ffb733;
+}
+
+.button-category {
+    width: 150px;
+    margin-left: 10px;
+    text-align: center;
+    height: 25px;
+    font-size: 15px;
+    background-color: #ffa500;
+    color: #666699;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.button-category:hover {
+    background-color: #ffb733;
+}
+
+.button_category_form {
+    width: 150px;
+    margin-left: 10px;
+    text-align: center;
+    height: 25px;
+    font-size: 15px;
+    background-color: #ffa500;
+    color: #666699;
+    border: none;
+    display: inline-block;
+}
+.number {
+    width: 45px;
+}
+.background {
+    color: lightyellow;
+}
+
+.edit_button {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #ffa500;
+    text-align: center;
+    border: 1px solid deepskyblue;
+}
+
+.edit_button:hover {
+    background-color: #ffb733;
+}
+
+.remove_ingredient {
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #ffa500;
+    text-align: center;
+    border: 1px solid deepskyblue;
+}
+
+.remove_ingredient:hover {
+    background-color: #ffb733;
+}
+
+.delete_button {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #ffa500;
+    text-align: center;
+    border: 1px solid deepskyblue;
+    margin-left: 10px;
+    color: red;
+}
+
+.delete_button:hover {
+    background-color: #ffb733;
+}
+
+#middle {
+}
+
+#title_text {
+    position: relative;
+    top: -15px
+}
+
+#submit_button {
+    margin-top: 50px;
+    margin-left: 170px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ffa500;
+    text-align: center;
+    width: 150px;
+    border: 1px solid deepskyblue;
+
+}
+
+#submit_button:hover {
+    background-color: #ffb733;
+}
+
+#time {
+    margin-left: 28px;
+}
+
+#form_left_label {
+    margin-left: 100px;
+}
+
+#likes {
+    margin-left: 100px;
+}
+
+#categories {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#left_recipe {
+    margin-top: 50px;
+    width: 300px;
+    height: 100%;
+    float: left;
+    background-color: lightyellow;
+    border-collapse: collapse;
+}
+
+#left_form {
+    margin-top: 50px;
+    width: 450px;
+    height: 100%;
+    float: left;
+    background-color: lightyellow;
+    border-collapse: collapse;
+}
+
+#middle_app {
+    margin-top: 70px;
+    margin-left: 50px;
+    width: 600px;
+    height: 100%;
+    float: left;
+    background-color: lightyellow;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+#middle_form {
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 600px;
+    height: 100%;
+    float: left;
+    background-color: lightyellow;
+    border-collapse: collapse;
+}
+
+#right_form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 250px;
+    height: 300px;
+    position: relative;
+    float: right;
+    background-color: lightyellow;
+    border-collapse: collapse;
+}
+
+#left {
+    width: calc(100% - 200px);
+    height: 100%;
+    float: left;
+    background-color: lightyellow;
+    border-collapse: collapse;
+}
+
+#ingredient_list {
+   min-width: 400px;
+    max-width: 700px;
+}
+
+#right {
+    margin-top: 50px;
+    width: 200px;
+    height: 100%;
+    position: relative;
+    float: right;
+    background-color: lightyellow;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+    background: lightyellow;
+}
+
+#general_header {
+    flex-shrink: 0;
+    background: #a3a3c2;
+    color: #800080;
+    padding: 3px;
+    height: 20px;
+    font-weight: lighter;
+    text-align: center;
+}
+
+#app_header {
+    /*column-count: 2;*/
+    background: #ffa500;
+    color: lightskyblue;
+    padding: 3px;
+    min-height: 50px;
+    font-weight: lighter;
+    text-align: right;
+}
+
+#prep_time {
+    margin-bottom: 20px;
+}
+
+#form_prep_time {
+    margin-top: 15px;
+}
+
+#recipe_edit {
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+#logo {
+    transform: translateY(5px);
+    font-size: 35px;
+    font-family: "cursive";
+    font-style: italic;
+    color: #996699;
+    margin-left: 100px;
+}
+
+#title {
+    height: 70px;
+    width: 100%;
+    background-color: #ffe4b2;
+    text-align: center;
+    font-size: 30px;
+    color: #666699;
+}
+
+#links {
+    text-align: left;
+}
+
+#footer {
+    margin-top: 20px;
+    position: absolute;
+    flex-shrink: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background: #a3a3c2;;
+    color: #800080;
+    text-align: center;
+    font-weight: lighter;
+}
+
+#description_label {
+    margin-top: 25px;
+    margin-left: 140px;
+}
+
+#time_info {
+    margin-left: 230px;
+    height: 8px;
+    font-style: italic;
+}
