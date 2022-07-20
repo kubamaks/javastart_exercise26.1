@@ -24,12 +24,6 @@ class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, int preparationTime, String description) {
-        this.name = name;
-        this.preparationTime = preparationTime;
-        this.description = description;
-    }
-
     public void addIngredient(Ingredient ingredient) {
         ingredients.add(ingredient);
     }

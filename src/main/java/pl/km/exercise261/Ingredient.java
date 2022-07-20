@@ -12,11 +12,6 @@ public class Ingredient {
 
     public Ingredient() {}
 
-    public Ingredient(String name, String quantity) {
-        this.name = name;
-        this.quantity = quantity;
-    }
-
     public long getId() {
         return id;
     }
